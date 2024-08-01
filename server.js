@@ -3,13 +3,16 @@ import cors from 'cors';
 import 'dotenv/config';
 import songRouter from './src/routes/songRoute.js';
 import connectDB from './src/config/mongodb.js';
+import connectCloudinary from './src/config/cloudinary.js';
 
-// Connect to MongoDB
-connectDB();
 
 // app config
 const app = express();
 const port = process.env.PORT || 4000;
+// Connect to MongoDB
+connectDB();
+// connect to the clodianry
+connectCloudinary();
 
 // middlewares
 app.use(express.json());
